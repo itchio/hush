@@ -4,14 +4,14 @@ go 1.13
 
 require (
 	github.com/dchest/safefile v0.0.0-20151022103144-855e8d98f185
-	github.com/itchio/boar v0.0.0-20200228090641-f6e2d2d7029b
-	github.com/itchio/go-itchio v0.0.0-20190715130917-ff003c6e3102
-	github.com/itchio/headway v0.0.0-20191015112415-46f64dd4d524
-	github.com/itchio/httpkit v0.0.0-20200228192911-d307914d3efe
-	github.com/itchio/intact v0.0.0-20200228094056-5aa3a13eaf5b
-	github.com/itchio/lake v0.0.0-20191018173418-af085e0239d0
-	github.com/itchio/savior v0.0.0-20200218082503-d5f7d672bea6
-	github.com/itchio/screw v0.0.0-20191018161534-50266ea9752a
+	github.com/itchio/boar v0.0.0-20200301161742-8b7d4bb5278c
+	github.com/itchio/go-itchio v0.0.0-20200301160906-508e37e43b9c
+	github.com/itchio/headway v0.0.0-20200301160421-e15721f23905
+	github.com/itchio/httpkit v0.0.0-20200301151414-2207154e44d1
+	github.com/itchio/intact v0.0.0-20200301161822-f8c4a3336c2a
+	github.com/itchio/lake v0.0.0-20200301160735-98172e1a6370
+	github.com/itchio/savior v0.0.0-20200301160120-c73741a23f8b
+	github.com/itchio/screw v0.0.0-20200301160148-75fc2d65fb38
 	github.com/pkg/errors v0.9.1
 	github.com/stretchr/testify v1.5.1
 )
