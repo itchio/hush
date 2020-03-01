@@ -58,9 +58,6 @@ type UninstallParams struct {
 type InstallResult struct {
 	// Files is a list of paths, relative to the install folder
 	Files []string
-
-	// optional, installer-specific fields:
-	MSIProductCode string
 }
 
 type InstallerInfo struct {

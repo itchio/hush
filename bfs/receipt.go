@@ -29,11 +29,6 @@ type Receipt struct {
 	// The installer used to install at this location
 	// @optional
 	InstallerName string `json:"installerName"`
-
-	// If this was installed from an MSI package, the product code,
-	// used for a clean uninstall.
-	// @optional
-	MSIProductCode string `json:"msiProductCode,omitempty"`
 }
 
 func ReadReceipt(InstallFolder string) (*Receipt, error) {
