@@ -36,7 +36,7 @@ func (ies *InstallEventSink) PostEvent(event InstallEvent) error {
 
 	if event.Type == "" {
 		// wee runtime checks
-		panic("InstallEventSink events shoudl always have Type set")
+		panic("InstallEventSink events should always have Type set")
 	}
 
 	return ies.Append(event)
