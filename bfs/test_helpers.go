@@ -67,9 +67,7 @@ func checkFolder(t *testing.T, fs *folderSpec, dest string) {
 	}
 
 	// make sure all entries are accounted for
-	container, err := tlc.WalkDir(dest, &tlc.WalkOpts{
-		Filter: tlc.DefaultFilter,
-	})
+	container, err := tlc.WalkDir(dest, tlc.WalkOpts{})
 	must(t, err)
 
 	for _, f := range container.Files {
