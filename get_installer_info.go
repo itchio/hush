@@ -4,6 +4,7 @@ import (
 	"io"
 	"path/filepath"
 	"time"
+	"strings"
 
 	"github.com/itchio/boar"
 	"github.com/itchio/headway/state"
@@ -19,7 +20,7 @@ func GetInstallerInfo(consumer *state.Consumer, file eos.File) (*InstallerInfo, 
 	}
 
 	target := stat.Name()
-	ext := filepath.Ext(target)
+	ext := strings.ToLower(filepath.Ext(target)) // The file extension is checked case-insensitively (Zip == ZIP == zip)
 	name := filepath.Base(target)
 
 	consumer.Infof("↝ For source (%s)", name)
