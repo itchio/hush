@@ -61,6 +61,10 @@ var installerForExt = map[string]InstallerType{
 	".wav": InstallerTypeNaked,
 	".mp4": InstallerTypeNaked,
 	".avi": InstallerTypeNaked,
+	".mkv": InstallerTypeNaked,
+	".flac": InstallerTypeNaked,
+	".opus": InstallerTypeNaked,
+	".webm": InstallerTypeNaked,
 
 	///////////////////////////////////////////////////////////
 	// Images
@@ -71,6 +75,7 @@ var installerForExt = map[string]InstallerType{
 	".gif": InstallerTypeNaked,
 	".bmp": InstallerTypeNaked,
 	".tga": InstallerTypeNaked,
+	".webp": InstallerTypeNaked,
 
 	///////////////////////////////////////////////////////////
 	// Game Maker assets
