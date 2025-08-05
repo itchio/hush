@@ -64,6 +64,8 @@ github.com/itchio/dmcunrar-go v0.0.0-20200301160520-3f7579536695 h1:Z1O6eIsBkYKl
 github.com/itchio/dmcunrar-go v0.0.0-20200301160520-3f7579536695/go.mod h1:rUrDMGTBACKKDvlSJludmw2F3+vsyYHyhF2YM4E0Mrc=
 github.com/itchio/dmcunrar-go v0.0.0-20200303200038-d0b2e3ba28f6 h1:SnQh8jp6mdFsTX0J8WKFJbdiPmrKxwOHWHVv/3RnvKk=
 github.com/itchio/dmcunrar-go v0.0.0-20200303200038-d0b2e3ba28f6/go.mod h1:rUrDMGTBACKKDvlSJludmw2F3+vsyYHyhF2YM4E0Mrc=
+github.com/itchio/dmcunrar-go v0.0.0-20241212230744-bd86d6b265e9 h1:IvEDt0GFOsRYPNMU3OkW8Kd+HltfMV8xOlHeFy5mzzM=
+github.com/itchio/dmcunrar-go v0.0.0-20241212230744-bd86d6b265e9/go.mod h1:rUrDMGTBACKKDvlSJludmw2F3+vsyYHyhF2YM4E0Mrc=
 github.com/itchio/dskompress v0.0.0-20190702113811-5e6f499be697/go.mod h1:clqOV8HXYpbDC3Bzia6urYIkfgwP1FnDr/C0q8KELmo=
 github.com/itchio/go-brotli v0.0.0-20190702114328-3f28d645a45c h1:Jf20xV/yR/O6eSUqLTuXhka/+54YR59sGwN7b3MkxYk=
 github.com/itchio/go-brotli v0.0.0-20190702114328-3f28d645a45c/go.mod h1:oRXh43p/JW9kWosasd+2kHfDpb1ec4m7YrZ5E39s1iI=

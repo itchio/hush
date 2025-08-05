@@ -6,7 +6,7 @@ require (
 	github.com/BurntSushi/toml v0.3.1
 	github.com/dchest/safefile v0.0.0-20151022103144-855e8d98f185
 	github.com/itchio/boar v0.0.0-20200305195307-d2befc01fa9e
-	github.com/itchio/dmcunrar-go v0.0.0-20200303200038-d0b2e3ba28f6 // indirect
+	github.com/itchio/dmcunrar-go v0.0.0-20241212230744-bd86d6b265e9 // indirect
 	github.com/itchio/go-itchio v0.0.0-20200301160906-508e37e43b9c
 	github.com/itchio/headway v0.0.0-20200301160421-e15721f23905
 	github.com/itchio/httpkit v0.0.0-20200304092139-56c2e1e88c9b
