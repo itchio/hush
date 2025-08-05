@@ -20,6 +20,7 @@ var installerForExt = map[string]InstallerType{
 
 	".dmg":          InstallerTypeNaked,
 	".exe":          InstallerTypeNaked,
+	".x86_64":       InstallerTypeNaked,
 	".deb":          InstallerTypeNaked,
 	".rpm":          InstallerTypeNaked,
 	".pkg":          InstallerTypeNaked,
