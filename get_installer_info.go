@@ -3,6 +3,7 @@ package hush
 import (
 	"io"
 	"path/filepath"
+	"strings"
 	"time"
 
 	"github.com/itchio/boar"
@@ -19,7 +20,7 @@ func GetInstallerInfo(consumer *state.Consumer, file eos.File) (*InstallerInfo, 
 	}
 
 	target := stat.Name()
-	ext := filepath.Ext(target)
+	ext := strings.ToLower(filepath.Ext(target))
 	name := filepath.Base(target)
 
 	consumer.Infof("↝ For source (%s)", name)
