@@ -1,7 +1,6 @@
 package bfs
 
 import (
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"sort"
@@ -13,7 +12,7 @@ import (
 )
 
 func Test_SaveAngels(t *testing.T) {
-	dir, err := ioutil.TempDir("", "bfs-save-angels-test")
+	dir, err := os.MkdirTemp("", "bfs-save-angels-test")
 	must(t, err)
 	defer func() {
 		os.RemoveAll(dir)

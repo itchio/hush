@@ -1,7 +1,6 @@
 package bfs
 
 import (
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"testing"
@@ -44,7 +43,7 @@ func makeFolder(fs *folderSpec, dest string) error {
 			return errors.Wrap(err, "creating test folder directory entry")
 		}
 
-		err = ioutil.WriteFile(entryPath, e.data, os.FileMode(0o644))
+		err = os.WriteFile(entryPath, e.data, os.FileMode(0o644))
 		if err != nil {
 			return errors.Wrap(err, "writing test folder file entry")
 		}
@@ -60,7 +59,7 @@ func checkFolder(t *testing.T, fs *folderSpec, dest string) {
 
 		entryPath := filepath.Join(dest, e.name)
 
-		data, err := ioutil.ReadFile(entryPath)
+		data, err := os.ReadFile(entryPath)
 		must(t, err)
 
 		assert.EqualValues(t, e.data, data)
