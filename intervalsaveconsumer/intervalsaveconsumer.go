@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/dchest/safefile"
-	"github.com/itchio/savior"
 	"github.com/itchio/headway/state"
+	"github.com/itchio/savior"
 	"github.com/pkg/errors"
 )
 
