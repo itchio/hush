@@ -29,6 +29,9 @@ func TestGetInstallerInfo_CaseInsensitiveExtension(t *testing.T) {
 		{"test.Mp3", InstallerTypeNaked},
 		{"test.Pdf", InstallerTypeNaked},
 		{"test.ExE", InstallerTypeNaked},
+		// AppImage (Linux portable apps)
+		{"test.appimage", InstallerTypeNaked},
+		{"test.AppImage", InstallerTypeNaked},
 		// Unknown extensions should remain unknown regardless of case
 		{"test.unknown", InstallerTypeUnknown},
 		{"test.UNKNOWN", InstallerTypeUnknown},
