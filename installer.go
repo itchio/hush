@@ -42,6 +42,11 @@ type InstallParams struct {
 	Context context.Context
 
 	EventSink *InstallEventSink
+
+	// SinkWrapper optionally wraps the savior.Sink used for extraction so
+	// callers can enforce byte / file-count budgets (or other policies).
+	// When nil, hush uses its default savior.FolderSink unchanged.
+	SinkWrapper func(savior.Sink) savior.Sink
 }
 
 type UninstallParams struct {

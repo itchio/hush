@@ -74,9 +74,12 @@ func (m *Manager) Install(params hush.InstallParams) (*hush.InstallResult, error
 		consumer.Warnf("Could not load checkpoint: %s", err.Error())
 	}
 
-	sink := &savior.FolderSink{
+	var sink savior.Sink = &savior.FolderSink{
 		Directory: params.InstallFolderPath,
 		Consumer:  consumer,
+	}
+	if params.SinkWrapper != nil {
+		sink = params.SinkWrapper(sink)
 	}
 	var closeSinkOnce sync.Once
 	defer closeSinkOnce.Do(func() {
