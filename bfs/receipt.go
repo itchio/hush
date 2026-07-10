@@ -23,7 +23,7 @@ type Receipt struct {
 	Upload *itchio.Upload `json:"upload"`
 	// The itch.io build installed at this location. Null for non-wharf upload.
 	// @optional
-	Build *itchio.Build `json:"build"`
+	Build *itchio.Build `json:"build,omitempty"`
 
 	// A list of installed files (slash-separated paths, relative to install folder)
 	Files []string `json:"files"`
