@@ -5,14 +5,14 @@ go 1.24.0
 require (
 	github.com/BurntSushi/toml v0.3.1
 	github.com/dchest/safefile v0.0.0-20151022103144-855e8d98f185
-	github.com/itchio/boar v0.0.0-20260123024902-13da36d125e4
+	github.com/itchio/boar v0.0.0-20260819185915-4c70884ec9e0
 	github.com/itchio/go-itchio v0.0.0-20251229221754-554b6b9748f0
 	github.com/itchio/headway v0.0.0-20251229214354-da882c8b5dd4
 	github.com/itchio/httpkit v0.0.0-20251231162950-9fb57e6ac916
 	github.com/itchio/intact v0.0.0-20200301161822-f8c4a3336c2a
 	github.com/itchio/lake v0.0.0-20200305150023-cc4284ec2b2a
 	github.com/itchio/ox v0.0.0-20200826161350-12c6ca18d236
-	github.com/itchio/savior v0.0.0-20260123024556-94b63eb5a77a
+	github.com/itchio/savior v0.0.0-20260819185719-dca4d72ed7e2
 	github.com/itchio/screw v0.0.0-20200301160148-75fc2d65fb38
 	github.com/mitchellh/mapstructure v1.1.2
 	github.com/pkg/errors v0.9.1
@@ -40,9 +40,9 @@ require (
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/gogs/chardet v0.0.0-20211120154057-b7413eaefb8f // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
-	github.com/itchio/arkive v0.0.0-20260123023417-b44dc5f47699 // indirect
+	github.com/itchio/arkive v0.0.0-20260424164943-5eabdbdce5c8 // indirect
 	github.com/itchio/dash v0.0.0-20221120052447-7320435e1835 // indirect
-	github.com/itchio/dmcunrar-go v0.0.0-20241212230744-bd86d6b265e9 // indirect
+	github.com/itchio/dmcunrar-go v0.0.0-20260417004436-431599c00729 // indirect
 	github.com/itchio/kompress v0.0.0-20200301155538-5c2eecce9e51 // indirect
 	github.com/itchio/pelican v0.0.0-20200626221820-739b3d7708d2 // indirect
 	github.com/itchio/sevenzip-go v0.0.0-20251211223907-deaa375308d8 // indirect

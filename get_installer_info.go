@@ -13,7 +13,25 @@ import (
 	"github.com/pkg/errors"
 )
 
+type GetInstallerInfoParams struct {
+	Consumer *state.Consumer
+	File     eos.File
+
+	// see boar.ProbeParams
+	NormalizeZipBackslashes bool
+}
+
 func GetInstallerInfo(consumer *state.Consumer, file eos.File) (*InstallerInfo, error) {
+	return GetInstallerInfoWithParams(GetInstallerInfoParams{
+		Consumer: consumer,
+		File:     file,
+	})
+}
+
+func GetInstallerInfoWithParams(params GetInstallerInfoParams) (*InstallerInfo, error) {
+	consumer := params.Consumer
+	file := params.File
+
 	stat, err := file.Stat()
 	if err != nil {
 		return nil, errors.WithStack(err)
@@ -45,6 +63,7 @@ func GetInstallerInfo(consumer *state.Consumer, file eos.File) (*InstallerInfo, 
 			OnEntries: func(es []*savior.Entry) {
 				entries = es
 			},
+			NormalizeZipBackslashes: params.NormalizeZipBackslashes,
 		})
 		consumer.Debugf("  (archive probe took %s)", time.Since(beforeArchiveProbe))
 		if err != nil {
