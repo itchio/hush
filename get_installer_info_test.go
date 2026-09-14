@@ -1,6 +1,7 @@
 package hush
 
 import (
+	"archive/zip"
 	"io"
 	"os"
 	"path/filepath"
@@ -96,4 +97,55 @@ func TestGetInstallerInfo_SniffExtensionlessExecutable(t *testing.T) {
 			assert.Equal(t, int64(0), pos)
 		})
 	}
+}
+
+func TestGetInstallerInfo_ExtensionOverrides(t *testing.T) {
+	consumer := &state.Consumer{}
+	dir := t.TempDir()
+
+	// a real zip so the archive probe succeeds
+	filePath := filepath.Join(dir, "game.dmg")
+	writeTestZip(t, filePath)
+
+	file, err := os.Open(filePath)
+	require.NoError(t, err)
+	defer file.Close()
+
+	// default registry: .dmg is naked
+	info, err := GetInstallerInfoWithParams(GetInstallerInfoParams{
+		Consumer: consumer,
+		File:     file,
+	})
+	require.NoError(t, err)
+	assert.Equal(t, InstallerTypeNaked, info.Type)
+
+	_, err = file.Seek(0, io.SeekStart)
+	require.NoError(t, err)
+
+	// override: .dmg routed to archive, and probed as one
+	info, err = GetInstallerInfoWithParams(GetInstallerInfoParams{
+		Consumer: consumer,
+		File:     file,
+		ExtensionOverrides: map[string]InstallerType{
+			".dmg": InstallerTypeArchive,
+		},
+	})
+	require.NoError(t, err)
+	assert.Equal(t, InstallerTypeArchive, info.Type)
+	require.NotNil(t, info.ArchiveInfo)
+	assert.Len(t, info.Entries, 1)
+}
+
+func writeTestZip(t *testing.T, path string) {
+	t.Helper()
+	f, err := os.Create(path)
+	require.NoError(t, err)
+	defer f.Close()
+
+	w := zip.NewWriter(f)
+	entry, err := w.Create("hello.txt")
+	require.NoError(t, err)
+	_, err = entry.Write([]byte("hello"))
+	require.NoError(t, err)
+	require.NoError(t, w.Close())
 }

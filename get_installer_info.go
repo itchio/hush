@@ -19,6 +19,13 @@ type GetInstallerInfoParams struct {
 
 	// see boar.ProbeParams
 	NormalizeZipBackslashes bool
+
+	// ExtensionOverrides maps lowercase extensions (including the dot,
+	// e.g. ".dmg") to an installer type, taking precedence over the
+	// built-in registry. Lets callers such as wharfd treat formats as
+	// archives without changing the default install behavior in butler
+	// and the itch app.
+	ExtensionOverrides map[string]InstallerType
 }
 
 func GetInstallerInfo(consumer *state.Consumer, file eos.File) (*InstallerInfo, error) {
@@ -45,7 +52,10 @@ func GetInstallerInfoWithParams(params GetInstallerInfoParams) (*InstallerInfo, 
 
 	var installerType = InstallerTypeUnknown
 
-	if extType, ok := installerForExt[ext]; ok {
+	if extType, ok := params.ExtensionOverrides[ext]; ok {
+		consumer.Infof("✓ Using file extension override (%s) => (%s)", ext, extType)
+		installerType = extType
+	} else if extType, ok := installerForExt[ext]; ok {
 		consumer.Infof("✓ Using file extension registry (%s) => (%s)", ext, extType)
 		installerType = extType
 	} else {
