@@ -50,6 +50,15 @@ func GetInstallerInfoWithParams(params GetInstallerInfoParams) (*InstallerInfo, 
 		installerType = extType
 	} else {
 		consumer.Warnf("  No mapping for file extension (%s)", ext)
+
+		sniffedType, err := sniffNakedExecutable(file)
+		if err != nil {
+			return nil, errors.WithStack(err)
+		}
+		if sniffedType != InstallerTypeUnknown {
+			consumer.Infof("✓ Sniffed executable header => (%s)", sniffedType)
+			installerType = sniffedType
+		}
 	}
 
 	if installerType == InstallerTypeArchive {
@@ -91,4 +100,33 @@ func GetInstallerInfoWithParams(params GetInstallerInfoParams) (*InstallerInfo, 
 	return &InstallerInfo{
 		Type: installerType,
 	}, nil
+}
+
+// sniffNakedExecutable catches bare ELF and Mach-O uploads, which on Linux
+// usually carry no extension at all. Leaves the file positioned at the start.
+func sniffNakedExecutable(file eos.File) (InstallerType, error) {
+	var header [4]byte
+	n, err := io.ReadFull(file, header[:])
+	if err != nil && err != io.ErrUnexpectedEOF && err != io.EOF {
+		return InstallerTypeUnknown, err
+	}
+
+	_, err = file.Seek(0, io.SeekStart)
+	if err != nil {
+		return InstallerTypeUnknown, err
+	}
+
+	if n < len(header) {
+		return InstallerTypeUnknown, nil
+	}
+
+	switch string(header[:]) {
+	case "\x7fELF",
+		"\xfe\xed\xfa\xce", "\xce\xfa\xed\xfe", // Mach-O 32-bit
+		"\xfe\xed\xfa\xcf", "\xcf\xfa\xed\xfe", // Mach-O 64-bit
+		"\xca\xfe\xba\xbe": // Mach-O universal (fat)
+		return InstallerTypeNaked, nil
+	}
+
+	return InstallerTypeUnknown, nil
 }
