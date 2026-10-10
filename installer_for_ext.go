@@ -11,6 +11,7 @@ var installerForExt = map[string]InstallerType{
 	".bz2": InstallerTypeArchive,
 	".7z":  InstallerTypeArchive,
 	".tar": InstallerTypeArchive,
+	".tgz": InstallerTypeArchive,
 	".xz":  InstallerTypeArchive,
 	".rar": InstallerTypeArchive,
 
