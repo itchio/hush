@@ -5,16 +5,16 @@ go 1.25.0
 require (
 	github.com/BurntSushi/toml v0.3.1
 	github.com/dchest/safefile v0.0.0-20151022103144-855e8d98f185
-	github.com/itchio/boar v0.0.0-20260914195502-3195815ae5bc
-	github.com/itchio/go-itchio v0.0.0-20260911013240-96abd172c8ec
+	github.com/itchio/boar v0.0.0-20261014005133-a6ad7f34eeab
+	github.com/itchio/go-itchio v0.0.0-20261014001842-1ce9c0cb498f
 	github.com/itchio/headway v0.0.0-20251229214354-da882c8b5dd4
-	github.com/itchio/httpkit v0.0.0-20260213231528-25109ada88c9
+	github.com/itchio/httpkit v0.0.0-20261014001543-804157f68bf3
 	github.com/itchio/intact v0.0.0-20260226205519-5e171e94117d
-	github.com/itchio/lake v0.0.0-20260913190718-5afe53462d58
+	github.com/itchio/lake v0.0.0-20261014002703-c21855d4ccaf
 	github.com/itchio/ox v0.0.0-20260212201121-1e6be0bfd382
-	github.com/itchio/savior v0.0.0-20260914182353-072694f48327
+	github.com/itchio/savior v0.0.0-20261014002740-9a7f4832f631
 	github.com/itchio/screw v0.0.0-20260221011136-e674b460b040
-	github.com/mitchellh/mapstructure v1.1.2
+	github.com/mitchellh/mapstructure v1.5.0
 	github.com/pkg/errors v0.9.1
 	github.com/stretchr/testify v1.11.1
 )
@@ -39,14 +39,14 @@ require (
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/gogs/chardet v0.0.0-20211120154057-b7413eaefb8f // indirect
 	github.com/itchio/arkive v0.0.0-20260428180635-32e8e9c72151 // indirect
-	github.com/itchio/dash v0.0.0-20260913204506-3a8e51ecf8c4 // indirect
+	github.com/itchio/dash v0.0.0-20261014004205-9eedde9ffa6f // indirect
 	github.com/itchio/dmcunrar-go v0.0.0-20260424162333-44c84bdd19dc // indirect
 	github.com/itchio/kompress v0.0.0-20200301155538-5c2eecce9e51 // indirect
 	github.com/itchio/pelican v0.0.0-20260911221521-7b94d473a7a7 // indirect
 	github.com/itchio/sevenzip-go v0.0.0-20260914192131-9ff04bb5e5ce // indirect
 	github.com/itchio/spellbook v0.0.0-20260223022740-4f847d058148 // indirect
 	github.com/itchio/wizardry v0.0.0-20260222230103-ec734b409e9c // indirect
-	github.com/klauspost/compress v1.18.3 // indirect
+	github.com/klauspost/compress v1.18.7 // indirect
 	github.com/nightlyone/lockfile v1.0.0 // indirect
 	github.com/oxtoacart/bpool v0.0.0-20190530202638-03653db5a59c // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
@@ -56,9 +56,9 @@ require (
 	go.opentelemetry.io/otel/trace v1.41.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.27.1 // indirect
-	golang.org/x/net v0.55.0 // indirect
-	golang.org/x/sys v0.45.0 // indirect
-	golang.org/x/text v0.37.0 // indirect
+	golang.org/x/net v0.56.0 // indirect
+	golang.org/x/sys v0.46.0 // indirect
+	golang.org/x/text v0.39.0 // indirect
 	golang.org/x/time v0.0.0-20191024005414-555d28b269f0 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect

@@ -84,7 +84,9 @@ func DownloadInstallSource(params DownloadInstallSourceParams) error {
 			if intact.IsIntegrityError(err) {
 				consumer.Warnf("Had integrity errors, we have to start over")
 				checkpoint = nil
-				retryCtx.Retry(err)
+				if err := retryCtx.Retry(ctx, err); err != nil {
+					return err
+				}
 				continue
 			}
 
@@ -92,7 +94,9 @@ func DownloadInstallSource(params DownloadInstallSourceParams) error {
 				if se.Code == htfs.ServerErrorCodeNoRangeSupport {
 					consumer.Warnf("%s does not support range requests (boo, hiss), we have to start over", se.Host)
 					checkpoint = nil
-					retryCtx.Retry(err)
+					if err := retryCtx.Retry(ctx, err); err != nil {
+						return err
+					}
 					continue
 				}
 			}
