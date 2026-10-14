@@ -88,7 +88,10 @@ func (m *Manager) Install(params hush.InstallParams) (*hush.InstallResult, error
 
 	aRes, err := ex.Resume(checkpoint, sink)
 	if err != nil {
-		if errors.Cause(err) == savior.ErrStop {
+		// A cancelled context fails the source read before the save
+		// consumer gets to stop the extractor cleanly; the last
+		// checkpoint is still good for a resume.
+		if errors.Cause(err) == savior.ErrStop || params.Context.Err() != nil {
 			cancelled = true
 		}
 		return nil, errors.WithStack(err)
