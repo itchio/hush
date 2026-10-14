@@ -109,7 +109,7 @@ func Read(folder string) (*Manifest, error) {
 
 	defer f.Close()
 
-	intermediate := make(map[string]interface{})
+	intermediate := make(map[string]any)
 	_, err = toml.DecodeReader(f, &intermediate)
 	if err != nil {
 		// invalid TOML

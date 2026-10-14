@@ -49,10 +49,3 @@ func SliceToLength(a []string, length int) []string {
 
 	return a[:min(length, len(a))]
 }
-
-func min(a int, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
