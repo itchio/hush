@@ -1,5 +1,12 @@
 package hush
 
+// installerForExt maps lowercase extensions to an installer type.
+//
+// Extensions that aren't listed install as naked, so an entry only changes
+// behavior when it is an archive, or when it pins naked for callers that
+// route by content (wharfd treats .jar, .love, .docx and friends as naked
+// because they are listed here, even though they are zips inside). The other
+// naked entries are kept as a record of formats seen in the wild.
 var installerForExt = map[string]InstallerType{
 
 	///////////////////////////////////////////////////////////
@@ -59,12 +66,12 @@ var installerForExt = map[string]InstallerType{
 	// Media
 	///////////////////////////////////////////////////////////
 
-	".ogg": InstallerTypeNaked,
-	".mp3": InstallerTypeNaked,
-	".wav": InstallerTypeNaked,
-	".mp4": InstallerTypeNaked,
-	".avi": InstallerTypeNaked,
-	".mkv": InstallerTypeNaked,
+	".ogg":  InstallerTypeNaked,
+	".mp3":  InstallerTypeNaked,
+	".wav":  InstallerTypeNaked,
+	".mp4":  InstallerTypeNaked,
+	".avi":  InstallerTypeNaked,
+	".mkv":  InstallerTypeNaked,
 	".flac": InstallerTypeNaked,
 	".opus": InstallerTypeNaked,
 	".webm": InstallerTypeNaked,
@@ -73,11 +80,11 @@ var installerForExt = map[string]InstallerType{
 	// Images
 	///////////////////////////////////////////////////////////
 
-	".png": InstallerTypeNaked,
-	".jpg": InstallerTypeNaked,
-	".gif": InstallerTypeNaked,
-	".bmp": InstallerTypeNaked,
-	".tga": InstallerTypeNaked,
+	".png":  InstallerTypeNaked,
+	".jpg":  InstallerTypeNaked,
+	".gif":  InstallerTypeNaked,
+	".bmp":  InstallerTypeNaked,
+	".tga":  InstallerTypeNaked,
 	".webp": InstallerTypeNaked,
 
 	///////////////////////////////////////////////////////////

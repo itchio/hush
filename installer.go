@@ -76,6 +76,9 @@ type InstallerType string
 const (
 	InstallerTypeNaked   InstallerType = "naked"
 	InstallerTypeArchive InstallerType = "archive"
+	// InstallerTypeUnknown is never returned by GetInstallerInfo, which
+	// falls back to naked. It remains as the zero-knowledge value for
+	// callers, e.g. a receipt that doesn't name its installer.
 	InstallerTypeUnknown InstallerType = "unknown"
 )
 

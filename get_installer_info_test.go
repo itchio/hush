@@ -2,6 +2,7 @@ package hush
 
 import (
 	"archive/zip"
+	"bytes"
 	"io"
 	"os"
 	"path/filepath"
@@ -34,9 +35,13 @@ func TestGetInstallerInfo_CaseInsensitiveExtension(t *testing.T) {
 		// AppImage (Linux portable apps)
 		{"test.appimage", InstallerTypeNaked},
 		{"test.AppImage", InstallerTypeNaked},
-		// Unknown extensions should remain unknown regardless of case
-		{"test.unknown", InstallerTypeUnknown},
-		{"test.UNKNOWN", InstallerTypeUnknown},
+		// ROMs
+		{"test.nes", InstallerTypeNaked},
+		{"test.GBA", InstallerTypeNaked},
+		{"test.nds", InstallerTypeNaked},
+		// Unregistered extensions install as naked
+		{"test.unknown", InstallerTypeNaked},
+		{"test.UNKNOWN", InstallerTypeNaked},
 	}
 
 	for _, tt := range tests {
@@ -58,8 +63,10 @@ func TestGetInstallerInfo_CaseInsensitiveExtension(t *testing.T) {
 	}
 }
 
-func TestGetInstallerInfo_SniffExtensionlessExecutable(t *testing.T) {
+func TestGetInstallerInfo_UnregisteredIsNaked(t *testing.T) {
 	consumer := &state.Consumer{}
+
+	zipBytes := testZipBytes(t)
 
 	tests := []struct {
 		filename     string
@@ -68,11 +75,19 @@ func TestGetInstallerInfo_SniffExtensionlessExecutable(t *testing.T) {
 	}{
 		{"tfitch-07212016-bin", []byte("\x7fELF\x01\x01\x01\x00rest of binary"), InstallerTypeNaked},
 		{"game-macos", []byte("\xcf\xfa\xed\xfe\x07\x00\x00\x01"), InstallerTypeNaked},
-		{"game-fat", []byte("\xca\xfe\xba\xbe\x00\x00\x00\x02"), InstallerTypeNaked},
-		{"README", []byte("just some text"), InstallerTypeUnknown},
-		{"tiny", []byte("\x7fE"), InstallerTypeUnknown},
-		{"empty", []byte{}, InstallerTypeUnknown},
-		{"binary.unknown", []byte("\x7fELF\x01\x01\x01\x00"), InstallerTypeNaked},
+		{"README", []byte("just some text"), InstallerTypeNaked},
+		{"empty", []byte{}, InstallerTypeNaked},
+		{"Terri-Fried.nds", []byte("\x2e\x00\x00\xea not really a rom"), InstallerTypeNaked},
+		{"Game v1.2", []byte("version suffix parsed as an extension"), InstallerTypeNaked},
+		// zips inside, but with no registered extension we don't extract
+		{"map.pk3", zipBytes, InstallerTypeNaked},
+		{"zipped-no-ext", zipBytes, InstallerTypeNaked},
+		// registered zip-shaped formats stay whole
+		{"game.love", zipBytes, InstallerTypeNaked},
+		{"game.jar", zipBytes, InstallerTypeNaked},
+		// registered archives are still probed and extracted
+		{"game.zip", zipBytes, InstallerTypeArchive},
+		{"game.ZIP", zipBytes, InstallerTypeArchive},
 	}
 
 	for _, tt := range tests {
@@ -91,7 +106,15 @@ func TestGetInstallerInfo_SniffExtensionlessExecutable(t *testing.T) {
 			require.NoError(t, err)
 			assert.Equal(t, tt.expectedType, info.Type)
 
-			// sniffing must leave the file at the start
+			if tt.expectedType == InstallerTypeArchive {
+				require.NotNil(t, info.ArchiveInfo)
+				assert.Len(t, info.Entries, 1)
+				return
+			}
+
+			assert.Nil(t, info.ArchiveInfo)
+
+			// a naked source must not have been read from
 			pos, err := file.Seek(0, io.SeekCurrent)
 			require.NoError(t, err)
 			assert.Equal(t, int64(0), pos)
@@ -138,14 +161,18 @@ func TestGetInstallerInfo_ExtensionOverrides(t *testing.T) {
 
 func writeTestZip(t *testing.T, path string) {
 	t.Helper()
-	f, err := os.Create(path)
-	require.NoError(t, err)
-	defer f.Close()
+	require.NoError(t, os.WriteFile(path, testZipBytes(t), 0644))
+}
 
-	w := zip.NewWriter(f)
+func testZipBytes(t *testing.T) []byte {
+	t.Helper()
+	var buf bytes.Buffer
+
+	w := zip.NewWriter(&buf)
 	entry, err := w.Create("hello.txt")
 	require.NoError(t, err)
 	_, err = entry.Write([]byte("hello"))
 	require.NoError(t, err)
 	require.NoError(t, w.Close())
+	return buf.Bytes()
 }
