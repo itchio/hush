@@ -1,6 +1,7 @@
 package bfs
 
 import (
+	"context"
 	"os"
 	"path/filepath"
 	"testing"
@@ -66,7 +67,7 @@ func checkFolder(t *testing.T, fs *folderSpec, dest string) {
 	}
 
 	// make sure all entries are accounted for
-	container, err := tlc.WalkDir(dest, tlc.WalkOpts{})
+	container, err := tlc.WalkDir(context.Background(), dest, tlc.WalkOpts{})
 	must(t, err)
 
 	for _, f := range container.Files {

@@ -1,6 +1,7 @@
 package bfs
 
 import (
+	"context"
 	"os"
 	"path/filepath"
 	"strings"
@@ -93,10 +94,14 @@ func SaveAngels(params *SaveAngelsParams, innerTask SaveAngelsFunc) (*SaveAngels
 		return nil, errors.Wrap(innerErr, "performing inner task while saving angels")
 	}
 
+	// The old folder is already renamed away, so from here on nothing may
+	// be cancelled: stopping would leave the install half switched.
+	ctx := context.Background()
+
 	// walk the freshly-installed dir now so we can store
 	// it in the receipt later. we walk it before saving
 	// angels so they don't end up in the receipt
-	newContainer, err := Walk(destPath)
+	newContainer, err := Walk(ctx, destPath)
 	if err != nil {
 		// if we can't walk it, we can't write a proper receipt,
 		// and we're kinda out of options
@@ -109,7 +114,7 @@ func SaveAngels(params *SaveAngelsParams, innerTask SaveAngelsFunc) (*SaveAngels
 		redempt := func() error {
 			// now, save angels if any
 			var previousContainer *tlc.Container
-			previousContainer, err = Walk(previousPath)
+			previousContainer, err = Walk(ctx, previousPath)
 			if err != nil {
 				return errors.Wrap(err, "walking previous destination to determine old files")
 			}

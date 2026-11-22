@@ -10,7 +10,7 @@ require (
 	github.com/itchio/headway v0.0.0-20251229214354-da882c8b5dd4
 	github.com/itchio/httpkit v0.0.0-20261014001543-804157f68bf3
 	github.com/itchio/intact v0.0.0-20260226205519-5e171e94117d
-	github.com/itchio/lake v0.0.0-20261014002703-c21855d4ccaf
+	github.com/itchio/lake v0.0.0-20261122050844-c3a57f1b367d
 	github.com/itchio/ox v0.0.0-20260212201121-1e6be0bfd382
 	github.com/itchio/savior v0.0.0-20261014002740-9a7f4832f631
 	github.com/itchio/screw v0.0.0-20260221011136-e674b460b040
@@ -39,10 +39,10 @@ require (
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/gogs/chardet v0.0.0-20211120154057-b7413eaefb8f // indirect
 	github.com/itchio/arkive v0.0.0-20260428180635-32e8e9c72151 // indirect
-	github.com/itchio/dash v0.0.0-20261014004205-9eedde9ffa6f // indirect
+	github.com/itchio/dash v0.0.0-20261122053245-4548a4c968e6 // indirect
 	github.com/itchio/dmcunrar-go v0.0.0-20260424162333-44c84bdd19dc // indirect
 	github.com/itchio/kompress v0.0.0-20200301155538-5c2eecce9e51 // indirect
-	github.com/itchio/pelican v0.0.0-20260911221521-7b94d473a7a7 // indirect
+	github.com/itchio/pelican v0.0.0-20261104233745-f575d787f608 // indirect
 	github.com/itchio/sevenzip-go v0.0.0-20261018052135-4aeb2247b776 // indirect
 	github.com/itchio/spellbook v0.0.0-20260223022740-4f847d058148 // indirect
 	github.com/itchio/wizardry v0.0.0-20260222230103-ec734b409e9c // indirect
@@ -50,6 +50,7 @@ require (
 	github.com/nightlyone/lockfile v1.0.0 // indirect
 	github.com/oxtoacart/bpool v0.0.0-20190530202638-03653db5a59c // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/ulikunitz/xz v0.5.16 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/otel v1.41.0 // indirect
 	go.opentelemetry.io/otel/metric v1.41.0 // indirect

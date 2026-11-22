@@ -65,8 +65,8 @@ github.com/itchio/arkive v0.0.0-20260428180635-32e8e9c72151 h1:d8HqXXMFHm3E3iEPr
 github.com/itchio/arkive v0.0.0-20260428180635-32e8e9c72151/go.mod h1:COxkdGM3zsZf9Uv7rC3+mu6ftr9V0xJWaPLv3KHis1Y=
 github.com/itchio/boar v0.0.0-20261122030220-072365f97354 h1:esbqnXoizyy4QeV0rniqOn6QrBbKsLro7Qg75o5yUTY=
 github.com/itchio/boar v0.0.0-20261122030220-072365f97354/go.mod h1:2zwB1kfmOiG7BTRhSIVf/1LIfEAxoukvuvrTSOObghE=
-github.com/itchio/dash v0.0.0-20261014004205-9eedde9ffa6f h1:5ta/yO5krJzWiW4aCByqMEC7/PaVvA8dYYG18NXe+8k=
-github.com/itchio/dash v0.0.0-20261014004205-9eedde9ffa6f/go.mod h1:gKZTJPFMtpLt/dNHdceWY09Q3488VE3sYsN5TbW8va0=
+github.com/itchio/dash v0.0.0-20261122053245-4548a4c968e6 h1:10sCwLSzAoFEpi5ZUeT0VA9P4aa7h+q75KZE8LOUWfU=
+github.com/itchio/dash v0.0.0-20261122053245-4548a4c968e6/go.mod h1:CpgmlpOfDFH8IlO+GOiaTleDhGqvngJgOqdHY9J6MnM=
 github.com/itchio/dmcunrar-go v0.0.0-20260424162333-44c84bdd19dc h1:s6pwHaAe+FYht3rAJFS++vp17SizmGRK9gTpq6i5lxw=
 github.com/itchio/dmcunrar-go v0.0.0-20260424162333-44c84bdd19dc/go.mod h1:JPXUR7Whpf+BnJwFlSjOSdll/5CpERypOxGW0wCF408=
 github.com/itchio/go-brotli v0.0.0-20190702114328-3f28d645a45c h1:Jf20xV/yR/O6eSUqLTuXhka/+54YR59sGwN7b3MkxYk=
@@ -82,12 +82,12 @@ github.com/itchio/intact v0.0.0-20260226205519-5e171e94117d h1:kV/P1stWMCvoSmt+d
 github.com/itchio/intact v0.0.0-20260226205519-5e171e94117d/go.mod h1:PCWTRtTQ1PUE6lmB+jDPxgA/wS59XYw48FqiovyjZYs=
 github.com/itchio/kompress v0.0.0-20200301155538-5c2eecce9e51 h1:jipXtdsZClshNO8fKK8ItiVyqE9bKA09as+qjW/yjG0=
 github.com/itchio/kompress v0.0.0-20200301155538-5c2eecce9e51/go.mod h1:iLS+Eq+S26jTC4pbdDH6N5XtDqrjb4IOXtjj1HCzbuk=
-github.com/itchio/lake v0.0.0-20261014002703-c21855d4ccaf h1:UeDwcZg6FftcbFWUqOCqCjWjB7e+pecC6wgLpZA9i4U=
-github.com/itchio/lake v0.0.0-20261014002703-c21855d4ccaf/go.mod h1:ABzRyUqsKcRQxAKFp7uac7C4z4Y0C1T0uDvBoDVx77g=
+github.com/itchio/lake v0.0.0-20261122050844-c3a57f1b367d h1:qyGau50rMXO+7jFwXkb2LMlGbloaLapOaINvGhvKLg0=
+github.com/itchio/lake v0.0.0-20261122050844-c3a57f1b367d/go.mod h1:JFoGOaPYTRbW2DaDKFOPG9ikZzeJoTX1Z15l9s6bqGQ=
 github.com/itchio/ox v0.0.0-20260212201121-1e6be0bfd382 h1:FKGDIamOblBuLCYDxJkGEGCKZ5YG5gJvhCEXb6IcZA8=
 github.com/itchio/ox v0.0.0-20260212201121-1e6be0bfd382/go.mod h1:433sW0ck7/e5u7yycn9pmuK84/askPuhm3MqtwFl9zk=
-github.com/itchio/pelican v0.0.0-20260911221521-7b94d473a7a7 h1:NdPpyCZT0GK8X51VLmlAWfWDxzMmfFaQL33mMRUucTA=
-github.com/itchio/pelican v0.0.0-20260911221521-7b94d473a7a7/go.mod h1:5myIRqGAjat0gT3qiK43Cv1puZhxn9bi17+JZFpJQMo=
+github.com/itchio/pelican v0.0.0-20261104233745-f575d787f608 h1:vbJzLwS5ifiXtrquSGGBOxfuR/4iwvT+Y0ZKjYZ4Okk=
+github.com/itchio/pelican v0.0.0-20261104233745-f575d787f608/go.mod h1:5myIRqGAjat0gT3qiK43Cv1puZhxn9bi17+JZFpJQMo=
 github.com/itchio/savior v0.0.0-20261014002740-9a7f4832f631 h1:hkG3dJXgBwwuBdOcaJdk8w27vOgQ1eZOFx39XGB1KL4=
 github.com/itchio/savior v0.0.0-20261014002740-9a7f4832f631/go.mod h1:GFkVY6E+SiTVtJoBHS7Uaag72eQigvpJRrr95sZ2TjM=
 github.com/itchio/screw v0.0.0-20260221011136-e674b460b040 h1:2nzurbZLgBSqNyLlIuO2iClpivQ7L5DX75kvCMqZ9e0=
@@ -132,6 +132,8 @@ github.com/stretchr/testify v1.7.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/
 github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO+kdMU+MU=
 github.com/stretchr/testify v1.11.1 h1:7s2iGBzp5EwR7/aIZr8ao5+dra3wiQyKjjFuvgVKu7U=
 github.com/stretchr/testify v1.11.1/go.mod h1:wZwfW3scLgRK+23gO65QZefKpKQRnfz6sD981Nm4B6U=
+github.com/ulikunitz/xz v0.5.16 h1:ld6NyySjx5lowVKwJvMRLnW5nxKX/xnpSiFYZ/Lxur0=
+github.com/ulikunitz/xz v0.5.16/go.mod h1:H9Rt/W6/Qj27PGauhQc6nfCDy7vHpzsOThBSaYDoEhw=
 github.com/yuin/goldmark v1.3.5/go.mod h1:mwnBkeHKe2W/ZEtQ+71ViKU8L12m81fl3OWwC1Zlc8k=
 go.opentelemetry.io/auto/sdk v1.2.1 h1:jXsnJ4Lmnqd11kwkBV2LgLoFMZKizbCi5fNZ/ipaZ64=
 go.opentelemetry.io/auto/sdk v1.2.1/go.mod h1:KRTj+aOaElaLi+wW1kO/DZRXwkF4C5xPbEe3ZiIhN7Y=

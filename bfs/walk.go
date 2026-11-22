@@ -1,11 +1,13 @@
 package bfs
 
 import (
+	"context"
+
 	"github.com/itchio/lake/tlc"
 )
 
-func Walk(path string) (*tlc.Container, error) {
-	return tlc.WalkDir(path, tlc.WalkOpts{Filter: tlc.PresetFilter})
+func Walk(ctx context.Context, path string) (*tlc.Container, error) {
+	return tlc.WalkDir(ctx, path, tlc.WalkOpts{Filter: tlc.PresetFilter})
 }
 
 // ContainerPaths returns a list of all paths in a

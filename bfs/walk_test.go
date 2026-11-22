@@ -1,6 +1,7 @@
 package bfs
 
 import (
+	"context"
 	"os"
 	"path/filepath"
 	"testing"
@@ -42,7 +43,7 @@ func Test_Walk(t *testing.T) {
 	}
 
 	must(t, makeFolder(fs, dest))
-	container, err := Walk(dest)
+	container, err := Walk(context.Background(), dest)
 	assert.NoError(t, err)
 
 	assert.EqualValues(t, 3, len(container.Files))
