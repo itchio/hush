@@ -2,24 +2,25 @@ package hush
 
 // installerForExt maps lowercase extensions to an installer type.
 //
-// Extensions that aren't listed install as naked, so an entry only changes
-// behavior when it is an archive, or when it pins naked for callers that
-// route by content (wharfd treats .jar, .love, .docx and friends as naked
-// because they are listed here, even though they are zips inside). The other
-// naked entries are kept as a record of formats seen in the wild.
+// Extensions that aren't listed install as naked, so only the archive
+// entries change behavior. The naked entries are kept as a record of formats
+// seen in the wild.
 var installerForExt = map[string]InstallerType{
 
 	///////////////////////////////////////////////////////////
 	// Generic archives
 	///////////////////////////////////////////////////////////
 
-	".zip": InstallerTypeArchive,
-	".gz":  InstallerTypeArchive,
-	".bz2": InstallerTypeArchive,
-	".7z":  InstallerTypeArchive,
-	".tar": InstallerTypeArchive,
-	".xz":  InstallerTypeArchive,
-	".rar": InstallerTypeArchive,
+	".zip":  InstallerTypeArchive,
+	".gz":   InstallerTypeArchive,
+	".bz2":  InstallerTypeArchive,
+	".7z":   InstallerTypeArchive,
+	".tar":  InstallerTypeArchive,
+	".xz":   InstallerTypeArchive,
+	".rar":  InstallerTypeArchive,
+	".tgz":  InstallerTypeArchive,
+	".tbz2": InstallerTypeArchive,
+	".txz":  InstallerTypeArchive,
 
 	///////////////////////////////////////////////////////////
 	// Known naked (because we no longer support them)

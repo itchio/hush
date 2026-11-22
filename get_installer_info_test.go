@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"io"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"testing"
 
@@ -85,6 +86,7 @@ func TestGetInstallerInfo_UnregisteredIsNaked(t *testing.T) {
 		// registered zip-shaped formats stay whole
 		{"game.love", zipBytes, InstallerTypeNaked},
 		{"game.jar", zipBytes, InstallerTypeNaked},
+		{"library.yymps", zipBytes, InstallerTypeNaked},
 		// registered archives are still probed and extracted
 		{"game.zip", zipBytes, InstallerTypeArchive},
 		{"game.ZIP", zipBytes, InstallerTypeArchive},
@@ -175,4 +177,46 @@ func testZipBytes(t *testing.T) []byte {
 	require.NoError(t, err)
 	require.NoError(t, w.Close())
 	return buf.Bytes()
+}
+
+func TestGetInstallerInfo_ShortTarExtensions(t *testing.T) {
+	if _, err := exec.LookPath("tar"); err != nil {
+		t.Skip("tar not available")
+	}
+	consumer := &state.Consumer{}
+
+	tests := []struct {
+		filename string
+		tarFlag  string
+		format   string
+	}{
+		{"game.tgz", "-z", "tar.gz"},
+		{"game.TGZ", "-z", "tar.gz"},
+		{"game.tbz2", "-j", "tar.bz2"},
+	}
+
+	// .txz is registered too, but probing xz loads the 7-zip library, so
+	// it is left to boar's own tests.
+	assert.Equal(t, InstallerTypeArchive, installerForExt[".txz"])
+
+	for _, tt := range tests {
+		t.Run(tt.filename, func(t *testing.T) {
+			dir := t.TempDir()
+			require.NoError(t, os.WriteFile(filepath.Join(dir, "hello.txt"), []byte("hello"), 0644))
+
+			filePath := filepath.Join(dir, tt.filename)
+			out, err := exec.Command("tar", "-c", tt.tarFlag, "-f", filePath, "-C", dir, "hello.txt").CombinedOutput()
+			require.NoError(t, err, string(out))
+
+			file, err := os.Open(filePath)
+			require.NoError(t, err)
+			defer file.Close()
+
+			info, err := GetInstallerInfo(consumer, file)
+			require.NoError(t, err)
+			assert.Equal(t, InstallerTypeArchive, info.Type)
+			require.NotNil(t, info.ArchiveInfo)
+			assert.Equal(t, tt.format, info.ArchiveInfo.Format)
+		})
+	}
 }

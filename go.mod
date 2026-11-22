@@ -5,7 +5,7 @@ go 1.25.0
 require (
 	github.com/BurntSushi/toml v0.3.1
 	github.com/dchest/safefile v0.0.0-20151022103144-855e8d98f185
-	github.com/itchio/boar v0.0.0-20261014005133-a6ad7f34eeab
+	github.com/itchio/boar v0.0.0-20261122030220-072365f97354
 	github.com/itchio/go-itchio v0.0.0-20261014001842-1ce9c0cb498f
 	github.com/itchio/headway v0.0.0-20251229214354-da882c8b5dd4
 	github.com/itchio/httpkit v0.0.0-20261014001543-804157f68bf3
@@ -43,7 +43,7 @@ require (
 	github.com/itchio/dmcunrar-go v0.0.0-20260424162333-44c84bdd19dc // indirect
 	github.com/itchio/kompress v0.0.0-20200301155538-5c2eecce9e51 // indirect
 	github.com/itchio/pelican v0.0.0-20260911221521-7b94d473a7a7 // indirect
-	github.com/itchio/sevenzip-go v0.0.0-20260914192131-9ff04bb5e5ce // indirect
+	github.com/itchio/sevenzip-go v0.0.0-20261018052135-4aeb2247b776 // indirect
 	github.com/itchio/spellbook v0.0.0-20260223022740-4f847d058148 // indirect
 	github.com/itchio/wizardry v0.0.0-20260222230103-ec734b409e9c // indirect
 	github.com/klauspost/compress v1.18.7 // indirect
